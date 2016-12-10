@@ -495,12 +495,17 @@ move();
 			if (heroIsAnimated == true) {
 
 				// startTheLoop(false);
+
+
+				//begin clearing the interval
 				clearInterval(loopAnime);
 				clearTimeout(heroFrameAnime1);
 				clearTimeout(heroFrameAnime2);
 				clearTimeout(heroFrameAnime3);
 				clearTimeout(heroFrameAnime4);
 				doThisNow = false;
+
+				//hero frame ball, set timouts to begin
 				heroFrameBall1 = setTimeout(AnimateHeroFrameBall1, 50);
 				heroFrameBall2 = setTimeout(AnimateHeroFrameBall2, 250);
 				heroFrameBall3 = setTimeout(AnimateHeroFrameBall3, 450);
