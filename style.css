@@ -76,19 +76,25 @@
 }
 
 #button1 {
-	visibility: visible;
+	visibility: hidden;
+	text-decoration: none;
+	border: none;
 }
 
 #button2 {
-	visibility: visible;
+	visibility: hidden;
+	text-decoration: none;
+	border: none;
 }
 
 #button3 {
-	visibility: visible;
+	visibility: hidden;
+	text-decoration: none;
+	border: none;
 }
 
 #button4 {
-	visibility: visible;
+	visibility: hidden;
 }
 
 #game-title {
