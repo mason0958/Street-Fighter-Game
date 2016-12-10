@@ -1,29 +1,98 @@
-div {
-	font-size: 72px;
+#colorBack {
+	position: relative;
+	top: 50px;
+	
+}
+.container {
+	background-color: grey;
+	width: 100%;
+	max-width: 512px;
+	height: 160px;
+	/*margin-left: 25%;
+	margin-right: 25%;
+	margin-top: 30px;*/
+	margin: 90px 0px 0px 0px;
+	text-align: center;
+	border-radius: 20px 20px 0px 0px;
 	color: white;
-	background-color: black;
-	border: 1px solid white;
+	font-family: 'Bungee', cursive;
+	font-size: 34px;
+	border: none;
+
 
 }
-#block1 {
+.container button {
+	width: 100px;
+	height: 30px;
+	text-decoration: none;
+	background-color: white;
+	position: relative;
+	bottom: 30px;
+}
+.container input {
+	width: 100px;
+	height: 20px;
+	position: relative;
+	bottom: 30px;
+}
+.centered {
 	width: 60%;
-	height: 200px;
-	float: left;
+	max-width: 512px;
+	margin:auto;
+	background-color: black;
 }
-#block2 {
-	width: 35%;
-	height: 600px;
-	float: right;
+#myProgress {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    background-color: white;
+    z-index: 1;
+    bottom: 30px;
 }
-#block3 {
-	width: 60%;
-	height: 400px;
-	float: left;
+#myBar {
+    position: absolute;
+    width: 1%;
+    height: 100%;
+    background-color: red;
+    z-index: 2;
 }
-@media screen and (max-width: 900px) {
-	#block1, #block2, #block3 {
-		width: 90%;
-		float: none;
-		margin: auto;
-	}
+#sammy {
+	/*display: none;*/
+	display: none;
+	position: relative;
+	bottom: 100px;
+	right: 40px;
+	z-index: 2;
+
 }
+#you-win{
+	/*visibility: hidden;*/
+	z-index: 5;
+	position: relative;
+	bottom: 80px;
+	right: 14px;
+	visibility: hidden;
+
+}
+
+#button1 {
+	visibility: visible;
+}
+
+#button2 {
+	visibility: visible;
+}
+
+#button3 {
+	visibility: visible;
+}
+
+#button4 {
+	visibility: visible;
+}
+
+#game-title {
+	visibility: visible;
+}
+
+
