@@ -36,6 +36,7 @@
 
 var Elwidth = 101;
 var drawSamuelFast;
+var gameEnded = false;
 function move() {
     var elem = document.getElementById("myBar"); 
     
@@ -53,6 +54,7 @@ function move() {
      		clearInterval(LoopAnimeMonster);
 
      		doThisNow = false;
+     		gameEnded = true;
 
      		var elementThis = document.getElementById('sammy');
      		
@@ -482,10 +484,12 @@ move();
 
 		var isPaused = false;
 
+
+
 		function draw() {
-			// if (isPaused) {
+			if (!gameEnded) {
 				update();
-			// }
+			}
 			context.drawImage(backgroundImage,0,0);
 
 			if (heroIsAnimated == true) {
