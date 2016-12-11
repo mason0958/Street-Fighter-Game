@@ -3,10 +3,39 @@
 	top: 50px;
 	
 }
+#canvas-element {
+	position: absolute;
+}
+
+#ins1 {
+	margin-bottom: 30px;
+	margin-top: 20px;
+	position: relative;
+	left: 2px;
+}
+
+#ins2 {
+	margin-top: 15px;
+	position: relative;
+	left: 10px;
+
+}
+
+#instructions {
+	/*background-color: grey;*/
+	width: 300px;
+	height: 381px;
+	border: solid 1px white;
+	float: right;
+	position: relative;
+	right: 10%;
+	border-radius: 20px 20px 0px 0px;
+}
 .container {
 	background-color: grey;
 	width: 100%;
-	max-width: 512px;
+	max-width: 511px;
+	min-width: 511px;
 	height: 160px;
 	/*margin-left: 25%;
 	margin-right: 25%;
@@ -14,10 +43,11 @@
 	margin: 90px 0px 0px 0px;
 	text-align: center;
 	border-radius: 20px 20px 0px 0px;
+	border: solid 1px darkgrey;
+	border-bottom: 0px;
 	color: white;
 	font-family: 'Bungee', cursive;
 	font-size: 34px;
-	border: none;
 
 
 }
@@ -36,20 +66,53 @@
 	bottom: 30px;
 }
 .centered {
+	background-color: black;
+	/*background-image: url("arcade-machine.png");
+	background-repeat: no-repeat;*/
+}
+.centered-inner {
 	width: 60%;
 	max-width: 512px;
 	margin:auto;
-	background-color: black;
+	position: relative;
+	right: 10%;
+}
+.jscript-styling {
+	margin-left: 30%;
+
 }
 #myProgress {
+	float: right;
     position: relative;
-    width: 100%;
+    top: 60px;
+    width: 45%;
     height: 30px;
     background-color: white;
     z-index: 1;
     bottom: 30px;
+    margin-right: 10px;
+    border: solid 1px black;
 }
 #myBar {
+    position: absolute;
+    width: 1%;
+    height: 100%;
+    background-color: red;
+    z-index: 2;
+}
+#myProgress2 {
+	float: left;
+    position: relative;
+    top: 60px;
+    width: 45%;
+    height: 30px;
+    background-color: white;
+    z-index: 1;
+    bottom: 30px;
+    margin-left: 10px;
+    border: solid 1px black;
+}
+#myBar2 {
     position: absolute;
     width: 1%;
     height: 100%;
@@ -99,6 +162,17 @@
 
 #game-title {
 	visibility: visible;
+	position: relative;
+	bottom: 400px;
+	z-index: 10;
+}
+
+@media screen and (min-width: 983px) {
+    #game-title {
+        position: relative;
+        bottom: 30px;
+        z-index: 10;
+    }
 }
 
 
