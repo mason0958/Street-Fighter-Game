@@ -36,6 +36,7 @@ function move() {
      		document.getElementById("myProgress2").style.display = "none";
      		document.getElementById("myBar").style.display = "none";
      		document.getElementById("myBar2").style.display = "none";
+     		document.getElementById("github-code").style.display = "none";
      		// var db = document.body.getElementsByTagName('canvas');
      		// db.setAttribute("style","visibility: hidden");
 
@@ -78,7 +79,7 @@ function move2() {
 
      		var elementThis = document.getElementById('sammy');
      		
-     		var elementThisFive = document.getElementById('you-win');
+     		var elementThisFive = document.getElementById('you-win2');
      		var elementThisSix = document.getElementById('game-title');
 
      		document.getElementById("button1").style.display = "none";
@@ -86,7 +87,10 @@ function move2() {
      		document.getElementById("button3").style.display = "none";
      		document.getElementById("button4").style.display = "none";
      		document.getElementById("myProgress").style.display = "none";
+     		document.getElementById("myProgress2").style.display = "none";
      		document.getElementById("myBar").style.display = "none";
+     		document.getElementById("myBar2").style.display = "none";
+     		document.getElementById("github-code").style.display = "none";
 
      		elementThis.style.display = "inline";
      		elementThisFive.style.visibility = "visible";
@@ -101,7 +105,6 @@ function move2() {
         }
     }
 }
-
 move2();
 
 
@@ -125,6 +128,7 @@ move2();
 		var playerArray;
 		var hitMarkerX = 50;
 		var playerIsAttacking = false;
+		var playerIsAttacking2 = false;
 		var scoreMain = 0;
 
 
@@ -219,6 +223,8 @@ move2();
 		var heroIsAnimated2 = false;
 		var monsterIsAnimated = false;
 		var monsterIsAnimated2 = false;
+		var monsterFrameAttack = false;
+		var monsterFrameAttack2 = false;
 		var speedModifier = .3;
 		var sx = 1;
 		var sy = 20;
@@ -314,14 +320,14 @@ move2();
 
 			}
 
-			if(monsterLocation.x <= heroLocation.x + hitMarkerX && monsterLocation.y <= heroLocation.y + 32 && heroLocation.x <= monsterLocation.x + hitMarkerX && heroLocation.y <= monsterLocation.y + 32 && playerIsAttacking){
+			if(monsterLocation.x <= heroLocation.x + hitMarkerX && monsterLocation.y <= heroLocation.y + 32 && heroLocation.x <= monsterLocation.x + hitMarkerX && heroLocation.y <= monsterLocation.y + 32 && playerIsAttacking2){
 				
 				//hit the monster
 
 				// var score1 = player1.highscore += 1;
 				// scoreMain++;
 				// setScoreInc();
-				// move();
+				move2();
 
 				console.log("hero hit!");
 
@@ -337,7 +343,7 @@ move2();
 
             if(event.key == "q") {
                 console.log('user pressed the q key');
-                heroIsAnimated = true;
+                heroIsAnimated2 = true;
                 hitMarkerX = 110;
                 playerIsAttacking = true;
             }
@@ -386,7 +392,16 @@ move2();
 
             if(event.key == "Enter"){
 
-                monsterLocation.y -= 5;
+                // monsterIsAnimated = true;
+            }
+        });
+
+        addEventListener('keydown', function(event){
+
+            if(event.key == "/"){
+
+            	playerIsAttacking2 = true;
+                monsterIsAnimated = true;
             }
         });
 
@@ -471,6 +486,8 @@ move2();
 			dHeight = 95;
 		}
 		function AnimateMonsterLoop1() {
+
+			playerIsAttacking2 = false;
 			msx = 297;
 			msy = 138;
 			mSWidth = 80;
@@ -493,6 +510,9 @@ move2();
 		var heroFrameBall3;
 		var heroFrameBall4;
 		var heroFrameBall5;
+		var heroFramePunch1;
+		var heroFramePunch2;
+		var heroFramePunch3;
 		var heroFrameAnime1;
 		var heroFrameAnime2;
 		var heroFrameAnime3;
@@ -503,6 +523,7 @@ move2();
 		var LoopAnimeMonster;
 		var loopPhysics;
 		var returnToLoop;
+		var returnToLoop2;
 
 
 		function baseFrame() {
@@ -514,12 +535,13 @@ move2();
 			dHeight = 95;
 		}
 		var doThisNow = true;
+		var doThisNow2 = true;
 
 		function loopAnimation() {
 			if(doThisNow == true)
 			{
-				heroFrameAnime1 = setTimeout(AnimateHeroLoop1, 400);
-				heroFrameAnime2 = setTimeout(AnimateHeroLoop2, 500);
+				heroFrameAnime1 = setTimeout(AnimateHeroLoop1, 50);
+				heroFrameAnime2 = setTimeout(AnimateHeroLoop2, 100);
 				// heroFrameAnime3 = setTimeout(AnimateHeroLoop3, 600);
 				// heroFrameAnime4 = setTimeout(AnimateHeroLoop4, 700);
 				// heroFrameAnime3 = setTimeout(AnimateHeroLoop3, 800);
@@ -530,7 +552,7 @@ move2();
 		}
 
 		function loopAnimationMonster() {
-			if(doThisNow == true)
+			if(doThisNow2 == true)
 			{
 				monsterFrameAnime1 = setTimeout(AnimateMonsterLoop1, 200);
 				monsterFrameAnime2 = setTimeout(AnimateMonsterLoop2, 300);
@@ -578,12 +600,17 @@ move2();
 			doThisNow = setIt;
 		}
 
+		function enableLoop2(setIt) {
+			doThisNow2 = setIt;
+		}
+
 		startTheLoop(true);
 		startTheLoopMonster(true);
 		continuousPhysics(true);
 
 
 		var isPaused = false;
+		var isPaused2 = false;
 
 
 
@@ -627,11 +654,111 @@ move2();
 
 			if (heroIsAnimated2 == true) {
 
+				//clear the interval
+				clearInterval(loopAnime);
+				clearTimeout(heroFrameAnime1);
+				clearTimeout(heroFrameAnime2);
+				clearTimeout(heroFrameAnime3);
+				clearTimeout(heroFrameAnime4);
+				doThisNow = false;
+
+				heroFramePunch1 = setTimeout(function heroFramePunchAnimation1(){
+
+					sx = 1;
+					sy = 217;
+					sWidth = 50;
+					sHeight = 95;
+					dWidth = 50;
+					dHeight = 95;
+
+
+				}, 50);
+
+				heroFramePunch2 = setTimeout(function heroFramePunchAnimation2(){
+
+					sx = 117;
+					sy = 217;
+					sWidth = 70;
+					sHeight = 95;
+					dWidth = 70;
+					dHeight = 95;
+
+
+				}, 100);
+
+				// heroFramePunch3 = setTimeout(function heroFramePunchAnimation3(){
+
+				// 	sx = 1;
+				// 	sy = 217;
+				// 	sWidth = 50;
+				// 	sHeight = 95;
+				// 	dWidth = 50;
+				// 	dHeight = 95;
+
+
+				// }, 50);
+
+				console.log("this ran badGuy animation");
+
+
+				isPaused = setTimeout(enableLoop(true), 250);
+				returnToLoop = setTimeout(startTheLoop(true), 280);
+
+				heroIsAnimated2 = false;
 				
 			}
 
 			if (monsterIsAnimated == true) {
 
+				clearInterval(loopAnimeMonster);
+				clearTimeout(monsterFrameAnime1);
+				clearTimeout(monsterFrameAnime2);
+				doThisNow2 = false;
+
+				monsterFrameAttack1 = setTimeout(function monsterFramePunchAnimation1(){
+
+					msx = 420;
+					msy = 409;
+					mSWidth = 120;
+					mSHeight = 95;
+					mDWidth = 120;
+					mDHeight = 95;
+
+
+				}, 50);
+
+				monsterFrameAttack2 = setTimeout(function monsterFramePunchAnimation2(){
+
+					msx = 1;
+					msy = 409;
+					mSWidth = 140;
+					mSHeight = 95;
+					mDWidth = 140;
+					mDHeight = 95;
+
+
+				}, 200);
+
+				isPaused2 = setTimeout(enableLoop2(true), 250);
+				returnToLoop2 = setTimeout(startTheLoopMonster(true), 280);
+
+				monsterIsAnimated = false;
+				
+			}
+
+			if (monsterIsAnimated2 == true) {
+
+				clearInterval(loopAnimeMonster);
+				clearTimeout(monsterFrameAnime1);
+				clearTimeout(monsterFrameAnime2);
+				doThisNow2 = false;
+
+				
+
+				isPaused2 = setTimeout(enableLoop2(true), 250);
+				returnToLoop2 = setTimeout(startTheLoopMonster(true), 280);
+
+				monsterIsAnimated = false;
 				
 			}
 

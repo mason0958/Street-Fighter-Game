@@ -12,6 +12,7 @@
 	margin-top: 20px;
 	position: relative;
 	left: 2px;
+	top: 12px
 }
 
 #ins2 {
@@ -29,7 +30,7 @@
 	float: right;
 	position: relative;
 	right: 10%;
-	border-radius: 20px 20px 0px 0px;
+	/*border-radius: 20px 20px 0px 0px;*/
 }
 .container {
 	background-color: grey;
@@ -91,7 +92,7 @@
     z-index: 1;
     bottom: 30px;
     margin-right: 10px;
-    border: solid 1px black;
+    border: solid 4px black;
 }
 #myBar {
     position: absolute;
@@ -110,7 +111,7 @@
     z-index: 1;
     bottom: 30px;
     margin-left: 10px;
-    border: solid 1px black;
+    border: solid 4px black;
 }
 #myBar2 {
     position: absolute;
@@ -135,7 +136,16 @@
 	bottom: 80px;
 	right: 14px;
 	visibility: hidden;
-
+	left: 8px;
+}
+#you-win2{
+	/*visibility: hidden;*/
+	z-index: 5;
+	position: relative;
+	bottom: 115px;
+	right: 14px;
+	visibility: hidden;
+	left: 8px;
 }
 
 #button1 {
@@ -170,7 +180,7 @@
 @media screen and (min-width: 983px) {
     #game-title {
         position: relative;
-        bottom: 30px;
+        bottom: 40px;
         z-index: 10;
     }
 }
