@@ -30,6 +30,8 @@
 	float: right;
 	position: relative;
 	right: 10%;
+	left: 360px;
+	bottom: 157px;
 	/*border-radius: 20px 20px 0px 0px;*/
 }
 .container {

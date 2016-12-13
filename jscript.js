@@ -263,7 +263,7 @@ move2();
 				
 			}
 			if(39 in keysDown){
-				if(monsterLocation.x < 420) {
+				if(monsterLocation.x < 400) {
 					monsterLocation.x += (10 * speedModifier);
 					
 				}
@@ -301,8 +301,7 @@ move2();
 			// 	console.log("This: / character was pressed down.")
 			// 	//set the heroIsAnimated = true; triggering the hero animation
 			// 	heroIsAnimated = true;
-
-				
+			
 			// }
 
 			//this
